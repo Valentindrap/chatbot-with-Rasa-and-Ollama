@@ -1,0 +1,12 @@
+version: "3.1"
+
+rules:
+  - rule: Usar acción personalizada cuando no se reconoce la intención
+    steps:
+      - intent: nlu_fallback
+      - action: action_responder_bd
+
+  - rule: Responder consultas generales
+    steps:
+      - intent: consulta_general
+      - action: action_responder_bd

@@ -1,0 +1,106 @@
+
+    :root {
+      --accent-color: #1c60fd;
+      --light-text: #666;
+      --bg-gradient: radial-gradient(circle at center, #ffffff 0%, #e3e8ff 40%, #d4dbfa 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg-gradient);
+      background-size: cover;
+      overflow-x: hidden;
+      color: #111;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 800;
+      color: #111;
+    }
+
+    .hero-title span {
+      color: var(--accent-color);
+    }
+
+    .hero-subtitle {
+      font-size: 1.6rem;
+      color: var(--light-text);
+      margin-top: 15px;
+    }
+
+    .hero-description {
+      max-width: 700px;
+      margin: 25px auto;
+      font-size: 1.1rem;
+      color: var(--light-text);
+    }
+
+    .cta-button {
+      padding: 14px 40px;
+      background: var(--accent-color);
+      color: white;
+      font-weight: 600;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-4px);
+    }
+
+    section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 50px 30px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--accent-color);
+    }
+
+    section p {
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    .site-footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: var(--light-text);
+    }

@@ -1,0 +1,12 @@
+version: "3.1"
+
+intents:
+  - consulta_general
+  - nlu_fallback
+
+actions:
+  - action_responder_bd
+
+responses:
+  utter_default:
+    - text: "No tengo una respuesta precisa en este momento. ¿Podés reformular tu pregunta?"

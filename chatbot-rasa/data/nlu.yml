@@ -1,0 +1,22 @@
+version: "3.1"
+
+nlu:
+- intent: consulta_general
+  examples: |
+    - ¿Qué es Linux?
+    - no puedo imprimir
+    - cómo se instala python
+    - problemas con word
+    - error en excel
+    - mi computadora está lenta
+    - necesito ayuda con internet
+    - se tilda la máquina
+    - no se conecta a internet
+    - no puedo instalar una aplicación
+    - error en mi equipo
+    - hay un problema con mi computadora
+    - cómo detectar si tengo un virus
+    - cómo abrir el administrador de tareas
+    - diferencia entre hardware y software
+    - ¿qué es bluetooth?
+    - ¿cómo cambio la clave del wifi?

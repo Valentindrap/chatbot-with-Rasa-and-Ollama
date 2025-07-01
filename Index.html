@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soporte Informático - Chatbot</title>
+  <link rel="stylesheet" href="build/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+
+  <main class="hero">
+    <h1 class="hero-title">Soporte Informático <span>AI</span></h1>
+    <p class="hero-subtitle">Ahorra Tiempo. Resuelve Más.</p>
+    <p class="hero-description">Resuelve problemas técnicos con nuestro chatbot inteligente. Respuestas rápidas, personalizadas y sin complicaciones.</p>
+    <a href="chat.php" class="cta-button">Empezar Chat</a>
+  </main>
+
+  <section id="about">
+    <h2>Quiénes Somos</h2>
+    <p>Somos un equipo apasionado por la tecnología y la automatización. Nuestra misión es acercar soluciones inteligentes a personas y empresas que necesitan soporte informático sin complicaciones ni demoras.</p>
+  </section>
+
+  <section id="features">
+    <h2>¿Qué Hace Nuestro Bot?</h2>
+    <p>Te ayuda a resolver consultas técnicas al instante, desde problemas comunes hasta configuraciones avanzadas. Aprende continuamente para brindarte respuestas cada vez más precisas y personalizadas, ahorrando tiempo y recursos.</p>
+  </section>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 SoporteAI. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Mostrar secciones al hacer scroll
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
