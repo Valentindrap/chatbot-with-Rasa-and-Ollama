@@ -21,11 +21,11 @@ Este proyecto es un chatbot técnico desarrollado con [Rasa](https://rasa.com/) 
 ### 1. Clona este repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repo.git
-cd tu-repo
+git clone https://github.com/Valentindrap/chatbot-with-Rasa-and-Ollama.git
+cd chatbot-with-Rasa-and-Ollama
 ```
 
-### 2. Crea y activa un entorno virtual
+### 2. Crea y activa un entorno virtual dentro de la carpeta chatbot-rasa
 
 **Windows:**
 ```bash
@@ -62,7 +62,7 @@ Esto generará el modelo en la carpeta `models/`.
 
 ## 🚀 Ejecución del chatbot
 
-### Opción 1: Ejecutar desde script (solo en Windows)
+### Ejecutar desde script (solo en Windows)
 
 Ejecuta el archivo:
 ```bash
@@ -71,17 +71,6 @@ Inicializar Chatbot.bat
 
 Este script lanza los servidores de Rasa y las acciones personalizadas.
 
-### Opción 2: Manualmente desde terminal
-
-```bash
-cd chatbot-rasa
-
-# Terminal 1: Servidor principal de Rasa
-rasa run
-
-# Terminal 2: Servidor de acciones
-rasa run actions
-```
 
 ---
 
@@ -143,4 +132,4 @@ Este es un enlace con una versión de referencia:
 
 ## 🧑‍💻 Autor
 
-Desarrollado con 💻 usando Rasa, Python y MySQL.
+Desarrollado por Agustin Casado, Angie Zapata, Agustin Rosseto y [Valentin Drapanti](https://github.com/Valentindrap).
