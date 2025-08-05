@@ -9,10 +9,7 @@
 <body>
 
     <div class="container">
-        <div class="mascota">
-            <img src="../img/mascota-chatbot.png" alt="Chatbot">
-            <div class="mensaje-chatbot">¡Estas son tus consultas cargadas!</div>
-        </div>
+
 
         <div class="contenido">
             <a href='formAltaConsulta.php' class='volver-link'>➕ Volver a cargar consultas</a>
@@ -38,18 +35,6 @@
             ?>
         </div>
     </div>
-
-    <footer>
-        <div>
-            <img src="../img/logo.png" style="width: 100px; height: 100px;"/>
-        </div>
-        <div>
-            <p>Integrantes: Valentin Drapanti - Agustin Casado</p>
-            <p>&copy; Grupo N°1</p>
-            <p>7I - Programacion III</p>
-        </div>
-        <div></div>
-    </footer>
 
 </body>
 </html>

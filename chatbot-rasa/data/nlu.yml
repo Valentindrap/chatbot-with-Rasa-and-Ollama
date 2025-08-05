@@ -3,20 +3,103 @@ version: "3.1"
 nlu:
 - intent: consulta_general
   examples: |
+    - ¿Qué es un sistema operativo?
+    - ¿Qué es Windows 10?
+    - ¿Qué es Windows 11?
+    - ¿Para qué sirve un sistema operativo?
     - ¿Qué es Linux?
-    - no puedo imprimir
-    - cómo se instala python
-    - problemas con word
-    - error en excel
-    - mi computadora está lenta
-    - necesito ayuda con internet
-    - se tilda la máquina
-    - no se conecta a internet
-    - no puedo instalar una aplicación
-    - error en mi equipo
-    - hay un problema con mi computadora
-    - cómo detectar si tengo un virus
-    - cómo abrir el administrador de tareas
-    - diferencia entre hardware y software
-    - ¿qué es bluetooth?
-    - ¿cómo cambio la clave del wifi?
+    - ¿Qué es una distribución Linux?
+    - ¿Qué es Ubuntu?
+    - ¿En qué se diferencia Linux de Windows?
+    - ¿Qué es una aplicación informática?
+    - ¿Qué es un navegador web?
+    - ¿Qué es un procesador de texto?
+    - ¿Qué es una hoja de cálculo?
+    - ¿Qué es un editor de imágenes?
+    - ¿Qué es un reproductor multimedia?
+    - ¿Qué es Internet?
+    - ¿Qué es una red local (LAN)?
+    - ¿Qué es un router?
+    - ¿Qué es un módem?
+    - ¿Qué es Wi-Fi?
+    - ¿Qué es Bluetooth?
+    - ¿Qué es una dirección IP?
+    - ¿Qué es un servidor?
+    - ¿Qué es la nube (cloud)?
+    - ¿Qué es hardware?
+    - ¿Cuál es la diferencia entre hardware y software?
+    - ¿Qué es una placa base (tarjeta madre)?
+    - ¿Qué es la memoria RAM?
+    - ¿Qué es un disco duro (HDD/SSD)?
+    - ¿Qué es un procesador (CPU)?
+    - ¿Qué es una tarjeta gráfica?
+    - ¿Qué es un periférico de entrada o salida?
+    - ¿Qué es un controlador o driver?
+    - ¿Para qué sirve un controlador (driver)?
+    - ¿Cómo puedo actualizar los drivers de mi computadora?
+    - ¿Qué es un virus informático?
+    - ¿Qué es el malware?
+    - ¿Qué es un antivirus?
+    - ¿Por qué es importante tener un antivirus?
+    - ¿Qué es un firewall (cortafuegos)?
+    - ¿Qué es el phishing?
+    - ¿Cómo puedo proteger mi computadora de virus y ataques?
+    - ¿Qué es un troyano informático?
+    - ¿Qué es el ransomware?
+    - ¿Qué es un gusano informático?
+    - ¿Qué diferencia hay entre virus y malware?
+    - ¿Qué es el software espía (spyware)?
+    - ¿Qué es una actualización de seguridad?
+    - ¿Qué son las buenas prácticas de ciberseguridad?
+    - ¿Qué hacer si creo que mi computadora tiene un virus?
+    - ¿Qué es la autenticación de dos factores?
+    - ¿Qué es el comando ping en Windows o Linux?
+    - ¿Qué significa que una red tiene NAT?
+    - ¿Qué es una IP dinámica?
+    - ¿Qué diferencia hay entre un módem y un router?
+    - ¿Qué es una VPN?
+    - ¿Qué es el comando ipconfig?
+    - ¿Qué es el comando ifconfig o ip a en Linux?
+    - ¿Qué es la interfaz de red?
+    - ¿Qué significa actualizar el sistema operativo?
+    - ¿Qué es el registro de Windows?
+    - ¿Qué es el comando cd en Linux o Windows?
+    - ¿Qué es un archivo ejecutable en Windows?
+    - ¿Qué es el administrador de tareas de Windows?
+    - ¿Qué significa que un sistema es de código abierto?
+    - ¿Qué es el entorno de escritorio en Linux?
+    - ¿Qué es sudo en Linux?
+    - ¿Cómo se instala un programa en Linux?
+    - ¿Qué es un servicio en segundo plano?
+    - ¿Qué es un archivo comprimido?
+    - ¿Qué es Microsoft Office?
+    - ¿Qué es LibreOffice?
+    - ¿Qué es un driver de impresora?
+    - ¿Qué puede causar que una impresora no funcione?
+    - ¿Qué hacer si no tengo sonido en la computadora?
+    - ¿Qué es la BIOS?
+    - ¿Qué significa formatear un disco?
+    - ¿Qué es un sistema de archivos?
+    - ¿Qué es el análisis completo del antivirus?
+    - ¿Cómo saber si un archivo es sospechoso?
+    - ¿Qué hacer si me aparece un mensaje de “sitio web no seguro”?
+    - ¿Qué es el Escritorio Remoto en Windows?
+    - ¿Qué es el modo seguro de Windows?
+    - ¿Qué es un script en Linux?
+    - ¿Cómo abrir la terminal en Ubuntu?
+    - ¿Qué es un paquete .deb?
+    - ¿Qué es una red inalámbrica?
+    - ¿Qué es el SSID de una red Wi-Fi?
+    - ¿Qué es el ancho de banda?
+    - ¿Qué es una dirección MAC?
+    - ¿Qué es una caída de red?
+    - ¿Qué es la multitarea en un sistema operativo?
+    - ¿Qué es un archivo .iso?
+    - ¿Qué es el portapapeles?
+    - ¿Qué es una extensión de archivo?
+    - ¿Qué es una licencia de software?
+    - ¿Qué significa "software propietario"?
+    - ¿Qué es una amenaza persistente avanzada (APT)?
+    - ¿Qué es una contraseña segura?
+    - ¿Por qué no es seguro usar la misma contraseña en todos lados?
+    - ¿Qué hacer si olvidé mi contraseña de Windows?

@@ -14,6 +14,6 @@ start cmd /k "cd /d %PROYECTO_PATH% && call venv\Scripts\activate && rasa run -i
 start cmd /k "cd /d %PROYECTO_PATH% && call venv\Scripts\activate && rasa run actions"
 
 :: Abrir terminal con Ollama (sin entorno virtual)
-start cmd /k "ollama run mistral:instruct"
+::start cmd /k "ollama run mistral:instruct"
 
 exit
