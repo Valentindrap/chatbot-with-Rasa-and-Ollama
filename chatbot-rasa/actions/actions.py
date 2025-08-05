@@ -26,7 +26,6 @@ No menciones que eres una inteligencia artificial ni des detalles sobre tu funci
 
 Consulta: {pregunta}
 """
-
     try:
         response = requests.post(
             "https://7fba-168-90-74-33.ngrok-free.app/api/generate",
@@ -43,7 +42,6 @@ Consulta: {pregunta}
             return "⚠️ No pude obtener una respuesta técnica. ¿Querés intentar otra vez?"
     except Exception as e:
         return f"⚠️ Ocurrió un error al contactar con el motor de respuestas: {str(e)}"
-
 
 class ActionResponderBD(Action):
     def name(self) -> Text:
@@ -62,10 +60,16 @@ class ActionResponderBD(Action):
                 host="localhost",
                 user="root",
                 password="",
-                database="chatbot_db"
+                database="chatbot_2"
             )
             cursor = connection.cursor()
-            cursor.execute("SELECT pregunta, respuesta FROM consultas")
+
+            # Unir preguntas y respuestas mediante INNER JOIN
+            cursor.execute("""
+                SELECT p.pregunta, r.respuesta
+                FROM preguntas p
+                JOIN respuestas r ON p.id = r.pregunta_id
+            """)
             resultados = cursor.fetchall()
 
             for pregunta_bd, respuesta_bd in resultados:
