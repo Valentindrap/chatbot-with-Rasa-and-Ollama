@@ -71,6 +71,14 @@ Inicializar Chatbot.bat
 
 Este script lanza los servidores de Rasa y las acciones personalizadas.
 
+Para usar el ngrok
+
+En una terminal:
+ngrok http 11434
+
+En otra terminal:
+$env:OLLAMA_HOST = "0.0.0.0"
+ollama serve
 
 ---
 

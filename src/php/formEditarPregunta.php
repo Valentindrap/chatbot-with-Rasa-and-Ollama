@@ -1,3 +1,5 @@
+<?php include("check_session.php"); ?>
+
 <?php
 include "clases/pregunta.class.php";
 

@@ -1,3 +1,5 @@
+<?php include("check_session.php"); ?>
+
 <?php
 
 require_once("./clases/rol.class.php");

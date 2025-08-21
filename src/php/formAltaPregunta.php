@@ -1,3 +1,5 @@
+<?php include("check_session.php"); ?>
+
 <form name="formAltaPregunta" method="post" action="controller/pregunta.controller.php">
     <input type="hidden" name="operacion" value="guardar"/>
     <label>Pregunta:</label>
