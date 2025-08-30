@@ -2,7 +2,7 @@
 setlocal
 
 :: Ruta absoluta del proyecto
-set PROYECTO_PATH=C:\xampp\htdocs\chatbot-with-Rasa-and-Ollama/chatbot-rasa
+set PROYECTO_PATH=C:\xampp\htdocs\gaucho\chatbot-rasa
 
 :: Ir a la carpeta del proyecto
 cd /d %PROYECTO_PATH%
