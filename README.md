@@ -131,13 +131,6 @@ pip install -r requirements.txt
 
 ---
 
-## 🧪 Enlace compartido (ChatGPT)
-
-Este es un enlace con una versión de referencia:
-[Compartido en ChatGPT](https://chatgpt.com/share/68917805-c89c-800a-9273-3b3dca86abbe)
-
----
-
 ## 🧑‍💻 Autor
 
 Desarrollado por Agustin Casado, Angie Zapata, Agustin Rosseto y [Valentin Drapanti](https://github.com/Valentindrap).
