@@ -31,7 +31,7 @@ Consulta: {pregunta}
 """
     try:
         response = requests.post(
-            "https://gale-university-tee-concrete.trycloudflare.com/api/generate",  # O cambiá por tu proxy ngrok si estás usando uno
+            "http://localhost:11434/api/generate",  # O cambiá por tu proxy ngrok si estás usando uno
             json={
                 "model": "mistral",   # Usá el modelo que tengas cargado en Ollama
                 "prompt": prompt,

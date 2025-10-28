@@ -819,7 +819,7 @@
 </head>
 <script>
   // URL del endpoint de Ollama (ajustá a tu configuración real)
-  const OLLAMA_URL = "https://gale-university-tee-concrete.trycloudflare.com/api/generate";
+  const OLLAMA_URL = "http://localhost:11434/api/generate";
 
   // Mensaje de keep-alive
   function sendKeepAlive() {
@@ -889,7 +889,7 @@
     let isTyping = false;
     let currentTypingInterval = null;
     let abortController = null;
-    const RASA_URL = "https://relevant-abu-editors-judge.trycloudflare.com/webhooks/rest/webhook";
+    const RASA_URL = "http://localhost:5005/webhooks/rest/webhook";
     
     // Elementos DOM
     const body = document.body;
