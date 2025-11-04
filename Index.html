@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GauchoAI</title>
+  <link rel="stylesheet" href="src/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="src/img/logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+
+<canvas id="background-canvas"></canvas>
+
+<main class="hero">
+  <h1 class="hero-title">Gaucho<span>AI</span></h1>
+  <p class="hero-subtitle">Asistente Informático 100% Argentino</p>
+  <p class="hero-description">
+    Proyecto desarrollado por estudiantes de 7mo Primera de la <strong>EPET N° 3</strong> de General Pico, La Pampa. 
+    GauchoAI es un chatbot que funciona como un <strong>técnico en informática</strong>, capaz de diagnosticar problemas, 
+    orientar en soluciones y mejorar la productividad de manera ágil y sencilla.
+  </p>
+  <a href="chat.php" class="cta-button">Empezar Chat</a>
+</main>
+
+<section id="features" data-aos="fade-up">
+  <h2>¿Qué Puede Hacer Nuestro Bot?</h2>
+  <div class="features-modern">
+    <div class="feature-card" data-aos="zoom-in">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" >
+        <rect x="2" y="7" width="20" height="10" rx="2" ry="2"/>
+        <line x1="8" y1="3" x2="8" y2="7"/>
+        <line x1="16" y1="3" x2="16" y2="7"/>
+        <line x1="12" y1="17" x2="12" y2="21"/>
+      </svg>
+      <h3>Diagnóstico Técnico</h3>
+      <p>Identifica errores comunes en hardware, software y redes, como un verdadero asistente informático.</p>
+    </div>
+    <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" >
+        <path d="M12 2a7 7 0 0 1 7 7c0 3.866-3 7-7 7s-7-3.134-7-7a7 7 0 0 1 7-7z"/>
+        <path d="M12 12v7"/>
+        <path d="M12 19h4"/>
+      </svg>
+      <h3>IA Adaptativa</h3>
+      <p>Aprende de cada conversación para brindar mejores respuestas y asistencia técnica más precisa.</p>
+    </div>
+    <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" >
+        <circle cx="12" cy="12" r="10" />
+        <line x1="2" y1="12" x2="22" y2="12"/>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/>
+      </svg>
+      <h3>Soporte Integral</h3>
+      <p>Asiste en consultas sobre dispositivos, redes, aplicaciones y problemas cotidianos de informática.</p>
+    </div>
+  </div>
+</section>
+
+<section id="benefits" data-aos="fade-up">
+  <h2>¿Por Qué Elegir Gaucho AI?</h2>
+  <div class="benefit-grid">
+    <div class="benefit-card" data-aos="zoom-in">
+      <h3>24/7 Disponible</h3>
+      <p>Siempre listo para ayudarte, en cualquier momento del día.</p>
+    </div>
+    <div class="benefit-card" data-aos="zoom-in" data-aos-delay="100">
+      <h3>Optimización</h3>
+      <p>Aumenta tu productividad resolviendo problemas técnicos en minutos.</p>
+    </div>
+    <div class="benefit-card" data-aos="zoom-in" data-aos-delay="200">
+      <h3>Fácil de Usar</h3>
+      <p>Interfaz intuitiva, diseñada para estudiantes, docentes y usuarios en general.</p>
+    </div>
+    <div class="benefit-card" data-aos="zoom-in" data-aos-delay="300">
+      <h3>Orgullo Local</h3>
+      <p>Un proyecto <strong>100% argentino</strong>, creado en la EPET N° 3 de La Pampa por jóvenes con visión tecnológica.</p>
+    </div>
+  </div>
+</section>
+
+<section id="team" data-aos="fade-up">
+  <h2>Conocé al Equipo</h2>
+  <p>Este proyecto fue desarrollado por estudiantes de <strong>7mo Primera</strong> de la <strong>EPET N° 3</strong>, General Pico, La Pampa.</p>
+</section>
+
+<section id="contact" data-aos="fade-up">
+  <h2>Contacto</h2>
+  <p>Escribinos a <a href="mailto:soporte@gauchosolutions.com">soporte@gauchosolutions.com</a> o visitanos en nuestras redes.</p>
+</section>
+
+<footer class="site-footer">
+  <p>&copy; 2025 Gaucho Products - Proyecto educativo de 7mo I, EPET N° 3 (General Pico, La Pampa). Hecho con orgullo argentino.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+</script>
+</body>
+</html>

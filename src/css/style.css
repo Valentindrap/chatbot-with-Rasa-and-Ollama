@@ -1,0 +1,271 @@
+:root {
+  --accent-color: #1c60fd;
+  --light-text: #666;
+  --bg-gradient: radial-gradient(circle at center, #7a798a 0%, #faf3f3 40%, #979baa 100%);
+  --white: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg-gradient);
+  background-size: cover;
+  overflow-x: hidden;
+  color: #111;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #143ed9;
+}
+
+#background-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 200vw;
+  height: 200vh;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 800;
+  color: #111;
+}
+
+.hero-title span {
+  color: var(--accent-color);
+}
+
+.hero-subtitle {
+  font-size: 1.6rem;
+  color: var(--light-text);
+  margin-top: 15px;
+}
+
+.hero-description {
+  max-width: 700px;
+  margin: 25px auto;
+  font-size: 1.1rem;
+  color: var(--light-text);
+}
+
+.cta-button {
+  padding: 14px 40px;
+  background: var(--accent-color);
+  color: white;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  display: inline-block;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  background: #143ed9;
+}
+
+/* SECTION GENERAL */
+section {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 60px 30px;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 12px 35px var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-2px);
+}
+
+section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: var(--accent-color);
+  text-align: center;
+}
+
+section p,
+ul,
+blockquote {
+  font-size: 1.1rem;
+  color: #444;
+  text-align: center;
+}
+
+/* FEATURES */
+.features-modern {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  background: #f3f7ff;
+  padding: 30px;
+  border-radius: 16px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 10px 25px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px var(--shadow);
+}
+
+/* BENEFIT GRID */
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.benefit-card {
+  background: #f1f6ff;
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Íconos Feather estilizados */
+.icon {
+  width: 60px;
+  height: 60px;
+  stroke: var(--accent-color);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.feature-card:hover .icon,
+.benefit-card:hover .icon {
+  transform: scale(1.15);
+}
+
+/* TESTIMONIOS */
+.testimonial-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 40px;
+}
+
+.testimonial-card {
+  background: #f8faff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+}
+
+.testimonial-card p {
+  font-style: italic;
+  color: #333;
+}
+
+.testimonial-card span {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+/* TEAM */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.team-member {
+  background: #eef3ff;
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 25px var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+  transform: scale(1.03);
+}
+
+.team-member img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.team-member strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.team-member p {
+  font-size: 0.95rem;
+  color: var(--light-text);
+}
+
+/* FOOTER */
+.site-footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.9rem;
+  color: var(--light-text);
+}

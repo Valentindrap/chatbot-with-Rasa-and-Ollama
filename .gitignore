@@ -1,0 +1,13 @@
+
+# Modelos de Rasa (se regeneran con 'rasa train')
+chatbot-rasa/models/
+chatbot-rasa/.rasa/
+chatbot-rasa/venv/
+
+# Logs
+*.log
+
+# Otros archivos innecesarios
+__pycache__/
+*.pyc
+.DS_Store
