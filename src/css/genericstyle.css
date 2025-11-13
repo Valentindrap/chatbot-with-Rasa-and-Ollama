@@ -1,0 +1,210 @@
+:root {
+  --accent-color: #1c60fd;
+  --accent-hover: #143ed9;
+  --light-text: #666;
+  --white: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --bg-gradient: radial-gradient(circle at center, #7a798a 0%, #faf3f3 40%, #979baa 100%);
+}
+
+/* =======================
+   RESET Y BASE
+======================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  color: #111;
+  background: var(--bg-gradient);
+  background-size: cover;
+  scroll-behavior: smooth;
+  line-height: 1.5;
+}
+
+/* =======================
+   FORMULARIOS / LOGIN
+======================= */
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+form,
+.login-box {
+  max-width: 400px;
+  width: 100%;
+  padding: 30px 25px;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 12px 35px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: auto;
+}
+
+form:hover,
+.login-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px var(--shadow);
+}
+
+form label {
+  font-weight: 600;
+  color: var(--accent-color);
+  text-align: left;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form select,
+form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px rgba(28, 96, 253, 0.3);
+}
+
+form input[type="submit"],
+form button,
+.login-box input[type="submit"],
+.login-box button.back-btn {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 50px;
+  border: none;
+  background: var(--accent-color);
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form input[type="submit"]:hover,
+form button:hover,
+.login-box input[type="submit"]:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* Botón secundario */
+.login-box button.back-btn {
+  background: #666;
+}
+
+.login-box button.back-btn:hover {
+  background: #444;
+}
+
+/* Placeholder */
+input::placeholder {
+  color: #999;
+  text-align: left;
+}
+
+/* =======================
+   TABLAS
+======================= */
+table {
+  width: 90%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 12px 35px var(--shadow);
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: var(--accent-color);
+  color: var(--white);
+  font-weight: 600;
+}
+
+tr:hover {
+  background: #f0f4ff;
+}
+
+/* Acciones */
+table a,
+table input[type="submit"] {
+  padding: 6px 12px;
+  margin: 0 3px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+table a {
+  background: #eef3ff;
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+table a:hover {
+  background: var(--accent-color);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+table input[type="submit"] {
+  background: #ff4d4d;
+  color: #fff;
+  border: none;
+}
+
+table input[type="submit"]:hover {
+  background: #e60000;
+  transform: translateY(-2px);
+}
+
+/* =======================
+   TEXTOS Y BOTONES
+======================= */
+h2 {
+  color: var(--accent-color);
+  margin: 25px 0;
+  text-align: center;
+}
+
+div a {
+  display: inline-block;
+  margin: 15px auto;
+  padding: 10px 25px;
+  background: var(--accent-color);
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+div a:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
