@@ -361,18 +361,14 @@
       color: var(--error-color);
     }
 
-    .chat-input {
-      display: flex;
-      flex-direction: column;
-      padding: 1rem;
-      gap: 0.75rem;
+    .chat-input-container {
       background: var(--bg-tertiary);
       border-top: var(--border-light);
       transition: var(--transition-base);
       position: relative;
     }
 
-    .chat-input::before {
+    .chat-input-container::before {
       content: '';
       position: absolute;
       top: 0;
@@ -393,40 +389,11 @@
       overflow: hidden;
     }
 
-    .chat-input input {
-      flex: 1;
-      padding: 1rem 1.25rem;
-      border: var(--border-medium);
-      border-radius: var(--radius-lg);
-      font-size: 1rem;
-      transition: var(--transition-base);
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: 'Outfit', sans-serif;
-      width: 100%;
-    }
-
-    .chat-input input:focus {
-      outline: none;
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
-      background: var(--bg-tertiary);
-    }
-
-    .chat-input input::placeholder {
-      color: var(--text-secondary);
-    }
-
-    .chat-input input:disabled {
-      background: var(--bg-secondary);
-      cursor: not-allowed;
-      opacity: 0.7;
-    }
-
-    .chat-input-row {
+    .chat-input-wrapper {
       display: flex;
+      align-items: center;
       gap: 0.75rem;
-      width: 100%;
+      padding: 1rem;
     }
 
     .voice-btn {
@@ -506,7 +473,37 @@
       border-top: 6px solid var(--error-color);
     }
 
-    .chat-input button {
+    .chat-input {
+      flex: 1;
+      padding: 1rem 1.25rem;
+      border: var(--border-medium);
+      border-radius: var(--radius-lg);
+      font-size: 1rem;
+      transition: var(--transition-base);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Outfit', sans-serif;
+      width: 100%;
+    }
+
+    .chat-input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+      background: var(--bg-tertiary);
+    }
+
+    .chat-input::placeholder {
+      color: var(--text-secondary);
+    }
+
+    .chat-input:disabled {
+      background: var(--bg-secondary);
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    .send-btn {
       background: var(--gradient-primary);
       color: white;
       border: none;
@@ -522,29 +519,29 @@
       font-weight: 500;
       box-shadow: var(--shadow-md);
       white-space: nowrap;
-      flex: 1;
+      flex-shrink: 0;
     }
 
-    .chat-input button:hover:not(:disabled) {
+    .send-btn:hover:not(:disabled) {
       transform: translateY(-2px);
       box-shadow: var(--shadow-lg);
     }
 
-    .chat-input button:active:not(:disabled) {
+    .send-btn:active:not(:disabled) {
       transform: translateY(0);
     }
 
-    .chat-input button:disabled {
+    .send-btn:disabled {
       opacity: 0.6;
       cursor: not-allowed;
       transform: none;
     }
 
-    .chat-input button.stop-btn {
+    .send-btn.stop-btn {
       background: linear-gradient(135deg, var(--error-color) 0%, #dc2626 100%);
     }
 
-    .chat-input button.stop-btn:hover:not(:disabled) {
+    .send-btn.stop-btn:hover:not(:disabled) {
       background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
     }
 
@@ -951,14 +948,14 @@
     body.font-xlarge header h1 { font-size: 3.5rem; }
     body.font-xlarge header p { font-size: 1.4rem; }
 
-    body.font-small .chat-input input,
-    body.font-small .chat-input button { font-size: 0.9rem; }
+    body.font-small .chat-input,
+    body.font-small .send-btn { font-size: 0.9rem; }
 
-    body.font-large .chat-input input,
-    body.font-large .chat-input button { font-size: 1.1rem; }
+    body.font-large .chat-input,
+    body.font-large .send-btn { font-size: 1.1rem; }
 
-    body.font-xlarge .chat-input input,
-    body.font-xlarge .chat-input button { font-size: 1.2rem; }
+    body.font-xlarge .chat-input,
+    body.font-xlarge .send-btn { font-size: 1.2rem; }
 
     body.spacing-normal .message { line-height: 1.5; }
     body.spacing-medium .message { line-height: 1.8; }
@@ -1082,32 +1079,31 @@
       transform: scale(1.3);
     }
 
-.login-btn {
-  position: fixed !important;   /* ✅ fijo SIEMPRE */
-  top: 1rem;                    /* arriba */
-  left: 1rem;                   /* a la izquierda */
-  background: var(--gradient-primary);
-  color: white;
-  padding: 0.9rem 1.3rem;
-  border-radius: 50px;
-  font-weight: 500;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  transition: var(--transition-bounce);
-  z-index: 999999;              /* ✅ prioridad absoluta sobre todo */
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 0.95rem;
-  white-space: nowrap;
-  cursor: pointer;
-}
+    .login-btn {
+      position: fixed !important;
+      top: 1rem;
+      left: 1rem;
+      background: var(--gradient-primary);
+      color: white;
+      padding: 0.9rem 1.3rem;
+      border-radius: 50px;
+      font-weight: 500;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transition: var(--transition-bounce);
+      z-index: 999999;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      cursor: pointer;
+    }
 
-
-.login-btn:hover {
-  transform: translateY(-3px);   /* 🔹 efecto flotante suave */
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-}
+    .login-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
 
     .glow-effect {
       position: relative;
@@ -1169,66 +1165,70 @@
       box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
     }
 
+    /* RESPONSIVE MOBILE - CHAT FIJO ARRIBA */
     @media (max-width: 768px) {
       body {
-        padding: 1rem;
+        padding: 0;
         justify-content: flex-start;
       }
-      
+
+      .main-container {
+        height: 100vh;
+        max-width: 100%;
+      }
+
       header {
-        margin: 4.5rem 0 1.5rem 0;
+        display: none;
       }
-      
-      header h1 {
-        font-size: 2.2rem;
-      }
-      
-      header p {
-        font-size: 1rem;
-        padding: 0 0.5rem;
-      }
-      
+
       .chat-wrapper {
-        border-radius: var(--radius-lg);
+        border-radius: 0;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: 100%;
       }
-      
+
       .chat-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
         padding: 1rem;
         font-size: 1.1rem;
       }
-      
+
       .chat-body {
-        height: calc(100vh - 280px);
+        height: calc(100vh - 200px);
         padding: 1.25rem;
         gap: 1rem;
       }
-      
+
       .message {
         max-width: 85%;
         padding: 0.9rem 1.1rem;
         font-size: 0.95rem;
       }
-      
+
       .message.bot::before {
         border-width: 7px;
         left: -8px;
       }
-      
+
       .message.user::after {
         border-width: 7px;
         right: -8px;
       }
-      
-      .chat-input {
-        padding: 0.9rem;
-      }
-      
-      .chat-input input {
+
+      .chat-input-wrapper {
         padding: 0.9rem;
       }
 
-      .chat-input-row {
-        gap: 0.75rem;
+      .chat-input {
+        padding: 0.9rem;
       }
 
       .voice-btn {
@@ -1236,11 +1236,11 @@
         height: 45px;
         font-size: 1.1rem;
       }
-      
-      .chat-input button {
+
+      .send-btn {
         padding: 0.9rem;
       }
-      
+
       #theme-toggle {
         top: 1rem;
         right: 1rem;
@@ -1267,7 +1267,6 @@
         right: 1rem;
       }
 
-
       .recording-timer {
         top: -40px;
         font-size: 0.85rem;
@@ -1279,34 +1278,34 @@
       header h1 {
         font-size: 1.9rem;
       }
-      
+
       header p {
         font-size: 0.9rem;
       }
-      
+
       .chat-header {
         font-size: 1rem;
       }
-      
+
       .chat-header i {
         font-size: 1.1rem;
       }
-      
+
       #message-count {
         font-size: 0.75rem;
         padding: 0.3rem 0.6rem;
       }
-      
+
       .message {
         max-width: 90%;
         font-size: 0.9rem;
         padding: 0.8rem 1rem;
       }
-      
+
       .login-btn span {
         display: none;
       }
-      
+
       .login-btn {
         padding: 0.7rem;
         border-radius: 50%;
@@ -1335,7 +1334,7 @@
         font-size: 1rem;
       }
 
-      .chat-input button span {
+      .send-btn span {
         display: none;
       }
 
@@ -1349,11 +1348,11 @@
       .chat-body {
         height: calc(100vh - 220px);
       }
-      
+
       header {
         margin: 3.5rem 0 1rem 0;
       }
-      
+
       header h1 {
         font-size: 1.8rem;
         margin-bottom: 0.5rem;
@@ -1365,13 +1364,12 @@
     }
   </style>
 </head>
-<header>
+<body data-theme="light">
   <a href="login.html" class="login-btn glow-effect">
     <i class="fas fa-sign-in-alt"></i>
     <span>Iniciar Sesión</span>
   </a>
-</header>
-<body data-theme="light">
+
   <button id="theme-toggle" class="glow-effect" aria-label="Cambiar tema claro/oscuro">
     <i class="fas fa-sun"></i>
   </button>
@@ -1500,24 +1498,24 @@
       <div class="chat-body" id="chat-box" role="log" aria-live="polite" aria-atomic="false">
         <div class="message bot">¡Hola! 👋 Soy tu asistente virtual con GauchoAI ¿En qué puedo ayudarte hoy?</div>
       </div>
-      <form class="chat-input" id="chat-form">
-        <label for="user-input" class="visually-hidden">Escribe tu mensaje</label>
-        <input type="text" id="user-input" placeholder="Escribe tu mensaje aquí..." />
-        <div class="chat-input-row">
+      <div class="chat-input-container">
+        <div class="chat-input-wrapper">
           <button type="button" class="voice-btn" id="voice-btn" aria-label="Grabar mensaje de voz" aria-pressed="false">
             <i class="fas fa-microphone"></i>
           </button>
-          <button type="submit" class="glow-effect" id="send-btn" aria-label="Enviar mensaje">
+          <input type="text" id="user-input" class="chat-input" placeholder="Escribe tu mensaje aquí..." />
+          <button type="button" class="send-btn glow-effect" id="send-btn" aria-label="Enviar mensaje">
             <i class="fas fa-paper-plane"></i>
             <span>Enviar</span>
           </button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 
   <script>
     const OLLAMA_URL = "https://achieved-cambridge-mysterious-brings.trycloudflare.com/api/generate";
+    const RASA_URL = "https://embassy-offline-pike-greatly.trycloudflare.com/webhooks/rest/webhook";
 
     function sendKeepAlive() {
       fetch(OLLAMA_URL, {
@@ -1549,18 +1547,15 @@
     let abortController = null;
     let speechEnabled = false;
     let isRecording = false;
-    let mediaRecorder = null;
-    let audioChunks = [];
+    let recognition = null;
     let recordingStartTime = null;
     let recordingTimerInterval = null;
-    const RASA_URL = "https://embassy-offline-pike-greatly.trycloudflare.com/webhooks/rest/webhook";
     
     const body = document.body;
     const toggleBtn = document.getElementById('theme-toggle');
     const icon = toggleBtn.querySelector('i');
     const particlesContainer = document.getElementById('particles');
     const chatBox = document.getElementById('chat-box');
-    const chatForm = document.getElementById('chat-form');
     const userInput = document.getElementById('user-input');
     const sendBtn = document.getElementById('send-btn');
     const voiceBtn = document.getElementById('voice-btn');
@@ -1577,6 +1572,148 @@
     const largeCursorToggle = document.getElementById('large-cursor-toggle');
     const screenReaderToggle = document.getElementById('screen-reader-toggle');
     const resetAccessibilityBtn = document.getElementById('reset-accessibility');
+
+    // ===== WEB SPEECH API =====
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      voiceBtn.disabled = true;
+      voiceBtn.title = 'Tu navegador no soporta Web Speech API';
+    }
+
+    function createRecognition() {
+      const rec = new SpeechRecognition();
+      rec.lang = 'es-AR';
+      rec.interimResults = true;
+      rec.continuous = false;
+      rec.maxAlternatives = 1;
+
+      let finalTranscript = '';
+
+      rec.onstart = () => {
+        finalTranscript = '';
+        isRecording = true;
+        recordingStartTime = Date.now();
+        
+        voiceBtn.classList.add('recording');
+        voiceBtn.innerHTML = '<i class="fas fa-stop"></i>';
+        voiceBtn.setAttribute('aria-label', 'Detener grabación');
+        voiceBtn.setAttribute('aria-pressed', 'true');
+        
+        const timerDiv = document.createElement('div');
+        timerDiv.className = 'recording-timer';
+        timerDiv.id = 'recording-timer';
+        timerDiv.textContent = '0:00';
+        timerDiv.setAttribute('role', 'timer');
+        timerDiv.setAttribute('aria-live', 'polite');
+        voiceBtn.appendChild(timerDiv);
+        
+        recordingTimerInterval = setInterval(() => {
+          const elapsed = Math.floor((Date.now() - recordingStartTime) / 1000);
+          const minutes = Math.floor(elapsed / 60);
+          const seconds = elapsed % 60;
+          timerDiv.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }, 1000);
+        
+        userInput.disabled = true;
+        sendBtn.disabled = true;
+        
+        if (speechEnabled) {
+          speakText('Grabación iniciada');
+        }
+      };
+
+      rec.onresult = (event) => {
+        let interim = '';
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          const res = event.results[i];
+          const text = res[0].transcript || '';
+          if (res.isFinal) {
+            finalTranscript += text + ' ';
+          } else {
+            interim += text;
+          }
+        }
+        userInput.value = (finalTranscript + interim).trim();
+      };
+
+      rec.onerror = (ev) => {
+        console.error('SpeechRecognition error', ev);
+        let errorMsg = 'Error de reconocimiento de voz';
+        
+        if (ev.error === 'not-allowed' || ev.error === 'service-not-allowed') {
+          errorMsg = 'Permiso de micrófono denegado';
+        } else if (ev.error === 'network') {
+          errorMsg = 'Error de red del servicio de reconocimiento';
+        }
+        
+        addMessage(`⚠️ ${errorMsg}`, 'error');
+        stopRecording();
+      };
+
+      rec.onend = () => {
+        stopRecording();
+        
+        if (speechEnabled) {
+          speakText('Grabación terminada');
+        }
+      };
+
+      return rec;
+    }
+
+    function startRecording() {
+      if (!recognition) {
+        recognition = createRecognition();
+      }
+      try {
+        recognition.start();
+      } catch (e) {
+        try { recognition.stop(); } catch(_) {}
+        recognition = createRecognition();
+        try { recognition.start(); } catch(err) { 
+          console.warn('No se pudo iniciar reconocimiento', err); 
+        }
+      }
+    }
+
+    function stopRecording() {
+      isRecording = false;
+      
+      if (recordingTimerInterval) {
+        clearInterval(recordingTimerInterval);
+        recordingTimerInterval = null;
+      }
+      
+      const timerDiv = document.getElementById('recording-timer');
+      if (timerDiv) {
+        timerDiv.remove();
+      }
+      
+      voiceBtn.classList.remove('recording');
+      voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+      voiceBtn.setAttribute('aria-label', 'Grabar mensaje de voz');
+      voiceBtn.setAttribute('aria-pressed', 'false');
+      
+      userInput.disabled = false;
+      sendBtn.disabled = false;
+    }
+
+    voiceBtn.addEventListener('click', () => {
+      if (isRecording) {
+        if (recognition) {
+          try {
+            recognition.stop();
+          } catch (e) {
+            console.warn('stop() error:', e);
+            stopRecording();
+          }
+        }
+      } else {
+        startRecording();
+      }
+    });
+
+    // ===== FIN WEB SPEECH API =====
 
     function createParticles() {
       const particleCount = 50;
@@ -1630,6 +1767,7 @@
         updateMessageCount();
       }
 
+      // Leer mensaje del bot si está habilitado
       if (type === 'bot' && speechEnabled) {
         speakText(text);
       }
@@ -1731,6 +1869,10 @@
             chatBox.appendChild(botMessageDiv);
             
             simulateTyping(botMessageDiv, "No hay respuesta del bot.", () => {
+              // Leer mensaje de error si está activado
+              if (speechEnabled) {
+                speakText("No hay respuesta del bot.");
+              }
               setTypingState(false);
               sendBtn.disabled = false;
               userInput.focus();
@@ -1749,6 +1891,7 @@
               chatBox.appendChild(botMessageDiv);
               
               simulateTyping(botMessageDiv, msg.text, () => {
+                // Leer el mensaje cuando termine de escribirse
                 if (speechEnabled) {
                   speakText(msg.text);
                 }
@@ -1766,7 +1909,12 @@
             } else if (!isTyping) {
               while (messageIndex < data.length) {
                 if (data[messageIndex].text) {
-                  addMessage(data[messageIndex].text, 'bot');
+                  const msgText = data[messageIndex].text;
+                  addMessage(msgText, 'bot');
+                  // Leer cada mensaje si está activado
+                  if (speechEnabled) {
+                    speakText(msgText);
+                  }
                 }
                 messageIndex++;
               }
@@ -1824,10 +1972,7 @@
       }
     }
 
-    chatForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      sendMessage();
-    });
+    sendBtn.addEventListener('click', sendMessage);
 
     userInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && !e.shiftKey) {
@@ -1882,193 +2027,6 @@
       utterance.rate = 0.9;
       utterance.pitch = 1;
       window.speechSynthesis.speak(utterance);
-    }
-
-    async function startRecording() {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        
-        mediaRecorder = new MediaRecorder(stream);
-        audioChunks = [];
-        
-        mediaRecorder.addEventListener('dataavailable', (event) => {
-          audioChunks.push(event.data);
-        });
-        
-        mediaRecorder.addEventListener('stop', async () => {
-          const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
-          stream.getTracks().forEach(track => track.stop());
-          
-          await transcribeAudio(audioBlob);
-        });
-        
-        mediaRecorder.start();
-        isRecording = true;
-        recordingStartTime = Date.now();
-        
-        voiceBtn.classList.add('recording');
-        voiceBtn.innerHTML = '<i class="fas fa-stop"></i>';
-        voiceBtn.setAttribute('aria-label', 'Detener grabación');
-        voiceBtn.setAttribute('aria-pressed', 'true');
-        
-        const timerDiv = document.createElement('div');
-        timerDiv.className = 'recording-timer';
-        timerDiv.id = 'recording-timer';
-        timerDiv.textContent = '0:00';
-        timerDiv.setAttribute('role', 'timer');
-        timerDiv.setAttribute('aria-live', 'polite');
-        voiceBtn.appendChild(timerDiv);
-        
-        recordingTimerInterval = setInterval(() => {
-          const elapsed = Math.floor((Date.now() - recordingStartTime) / 1000);
-          const minutes = Math.floor(elapsed / 60);
-          const seconds = elapsed % 60;
-          timerDiv.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-        }, 1000);
-        
-        userInput.disabled = true;
-        sendBtn.disabled = true;
-        
-        if (speechEnabled) {
-          speakText('Grabación iniciada');
-        }
-      } catch (error) {
-        console.error('Error al acceder al micrófono:', error);
-        addMessage('⚠️ No se pudo acceder al micrófono. Verifica los permisos del navegador.', 'error');
-        
-        if (speechEnabled) {
-          speakText('Error al acceder al micrófono');
-        }
-      }
-    }
-
-    function stopRecording() {
-      if (mediaRecorder && isRecording) {
-        mediaRecorder.stop();
-        isRecording = false;
-        
-        if (recordingTimerInterval) {
-          clearInterval(recordingTimerInterval);
-          recordingTimerInterval = null;
-        }
-        
-        const timerDiv = document.getElementById('recording-timer');
-        if (timerDiv) {
-          timerDiv.remove();
-        }
-        
-        voiceBtn.classList.remove('recording');
-        voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
-        voiceBtn.setAttribute('aria-label', 'Grabar mensaje de voz');
-        voiceBtn.setAttribute('aria-pressed', 'false');
-        
-        userInput.disabled = false;
-        sendBtn.disabled = false;
-        
-        if (speechEnabled) {
-          speakText('Grabación detenida, transcribiendo audio');
-        }
-      }
-    }
-
-    async function transcribeAudio(audioBlob) {
-      try {
-        const transcribingMsg = addMessage('🎤 Transcribiendo audio...', 'bot');
-        
-        const reader = new FileReader();
-        reader.readAsDataURL(audioBlob);
-        
-        reader.onloadend = async () => {
-          const base64Audio = reader.result.split(',')[1];
-          
-          try {
-            const response = await fetch('https://api.anthropic.com/v1/messages', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                model: 'claude-sonnet-4-20250514',
-                max_tokens: 1000,
-                messages: [
-                  {
-                    role: 'user',
-                    content: 'Por favor transcribe este audio a texto en español. Responde SOLO con el texto transcrito, sin agregar comentarios adicionales.'
-                  }
-                ]
-              })
-            });
-
-            if (!response.ok) {
-              throw new Error('Error en la transcripción');
-            }
-
-            const data = await response.json();
-            const transcription = data.content
-              .filter(item => item.type === 'text')
-              .map(item => item.text)
-              .join(' ')
-              .trim();
-            
-            if (transcription) {
-              const lastMessage = chatBox.lastElementChild;
-              if (lastMessage && lastMessage.textContent === '🎤 Transcribiendo audio...') {
-                lastMessage.remove();
-                messageCount--;
-                updateMessageCount();
-              }
-              
-              userInput.value = transcription;
-              userInput.focus();
-              
-              if (speechEnabled) {
-                speakText(`Transcripción completa: ${transcription}`);
-              }
-              
-              addMessage('✅ Audio transcrito correctamente. Puedes editar el texto antes de enviarlo.', 'bot');
-            } else {
-              throw new Error('No se pudo transcribir el audio');
-            }
-          } catch (error) {
-            console.error('Error en transcripción:', error);
-            
-            const lastMessage = chatBox.lastElementChild;
-            if (lastMessage && lastMessage.textContent === '🎤 Transcribiendo audio...') {
-              lastMessage.remove();
-              messageCount--;
-              updateMessageCount();
-            }
-            
-            addMessage('⚠️ Error al transcribir el audio. Por favor, intenta de nuevo o escribe tu mensaje manualmente.', 'error');
-            
-            if (speechEnabled) {
-              speakText('Error al transcribir el audio');
-            }
-          }
-        };
-        
-        reader.onerror = () => {
-          console.error('Error al leer el archivo de audio');
-          addMessage('⚠️ Error al procesar el archivo de audio.', 'error');
-        };
-      } catch (error) {
-        console.error('Error procesando audio:', error);
-        addMessage('⚠️ Error al procesar el audio.', 'error');
-      }
-    }
-
-    voiceBtn.addEventListener('click', () => {
-      if (isRecording) {
-        stopRecording();
-      } else {
-        startRecording();
-      }
-    });
-
-    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-      voiceBtn.disabled = true;
-      voiceBtn.title = 'Tu navegador no soporta grabación de audio';
-      voiceBtn.setAttribute('aria-label', 'Grabación de audio no disponible en este navegador');
     }
 
     accessibilityToggle.addEventListener('click', () => {
