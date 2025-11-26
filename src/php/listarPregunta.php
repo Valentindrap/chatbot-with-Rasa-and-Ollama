@@ -10,34 +10,39 @@ $preguntas = Pregunta::obtenerTodas();
     <link rel="icon" href="../img/logo.png" type="image/png">
 </head>
 </html>
+
 <h2 style="text-align: center;">Lista de Preguntas</h2>
 <div style="text-align: center; margin-bottom: 10px;">
     <a href="formAltaPregunta.php">Nueva Pregunta</a>
 </div>
 <a href="../../entrada.php">Volver</a>
-<?php if ($preguntas == null) {
-    echo "No hay preguntas";
-} ?>
+
+<?php if (!$preguntas) echo "No hay preguntas"; ?>
 
 <table>
     <tr>
         <th>ID</th>
         <th>Pregunta</th>
-        <th>Categoría ID</th>
+        <th>Categoría</th>
         <th>Acciones</th>
     </tr>
+
     <?php foreach ($preguntas as $pregunta) { ?>
         <tr>
-            <td><?= $pregunta['id'] ?></td>
-            <td><?= $pregunta['pregunta'] ?></td>
-            <td><?= $pregunta['categoria_id'] ?></td>
+            <td><?= $pregunta->getId() ?></td>
+            <td><?= $pregunta->getPregunta() ?></td>
+            <td><?= $pregunta->getCategoria()->getNombre() ?></td>
+
             <td>
-                
                 <form action="controller/pregunta.controller.php" method="post" style="display:inline;">
-                    <a href="formEditarPregunta.php?id=<?= $pregunta['id'] ?>">Editar</a>
+                    <a href="formEditarPregunta.php?id=<?= $pregunta->getId() ?>">Editar</a>
+
                     <input type="hidden" name="operacion" value="eliminar">
-                    <input type="hidden" name="id" value="<?= $pregunta['id'] ?>">
-                    <input type="submit" onclick="return confirm('¿Está seguro de eliminar esta pregunta?')" value="Eliminar">
+                    <input type="hidden" name="id" value="<?= $pregunta->getId() ?>">
+
+                    <input type="submit"
+                           onclick="return confirm('¿Está seguro de eliminar esta pregunta?')"
+                           value="Eliminar">
                 </form>
             </td>
         </tr>

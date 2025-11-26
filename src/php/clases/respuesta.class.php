@@ -1,30 +1,50 @@
 <?php
 include_once("database.class.php");
+include_once("pregunta.class.php");
 
 class Respuesta {
     private $id;
     private $respuesta;
-    private $pregunta;
+    private $pregunta; // OBJETO Pregunta
     private $conexion;
 
     public function __construct($id = null, $respuesta = null, $pregunta = null) {
         $this->id = $id;
         $this->respuesta = $respuesta;
-        $this->pregunta = $pregunta;
+
+        if (is_numeric($pregunta)) {
+            $this->pregunta = Pregunta::obtenerPorId($pregunta);
+        } else {
+            $this->pregunta = $pregunta; // ya es objeto
+        }
+
         $this->conexion = Database::getInstance()->getConnection();
     }
 
     public function guardar() {
         $sql = "INSERT INTO respuestas (respuesta, pregunta_id) VALUES (?, ?)";
         $stmt = $this->conexion->prepare($sql);
-        return $stmt->execute([$this->respuesta, $this->pregunta]);
+        return $stmt->execute([
+            $this->respuesta,
+            $this->pregunta ? $this->pregunta->getId() : null
+        ]);
     }
 
     public static function obtenerTodas() {
         $conexion = Database::getInstance()->getConnection();
         $sql = "SELECT * FROM respuestas";
         $stmt = $conexion->query($sql);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $respuestas = [];
+        while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $respuestas[] = new Respuesta(
+                $fila["id"],
+                $fila["respuesta"],
+                $fila["pregunta_id"]
+            );
+        }
+
+        return $respuestas;
     }
 
     public static function obtenerPorId($id) {
@@ -32,9 +52,14 @@ class Respuesta {
         $sql = "SELECT * FROM respuestas WHERE id = ?";
         $stmt = $conexion->prepare($sql);
         $stmt->execute([$id]);
-        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($resultado) {
-            return new Respuesta($resultado['id'], $resultado['respuesta'], $resultado['pregunta_id']);
+        $fila = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($fila) {
+            return new Respuesta(
+                $fila["id"],
+                $fila["respuesta"],
+                $fila["pregunta_id"]
+            );
         }
         return null;
     }
@@ -42,7 +67,11 @@ class Respuesta {
     public function actualizar() {
         $sql = "UPDATE respuestas SET respuesta = ?, pregunta_id = ? WHERE id = ?";
         $stmt = $this->conexion->prepare($sql);
-        return $stmt->execute([$this->respuesta, $this->pregunta, $this->id]);
+        return $stmt->execute([
+            $this->respuesta,
+            $this->pregunta ? $this->pregunta->getId() : null,
+            $this->id
+        ]);
     }
 
     public function eliminar() {
@@ -51,28 +80,19 @@ class Respuesta {
         return $stmt->execute([$this->id]);
     }
 
-    public function getId() {
-        return $this->id;
-    }
+    public function getId() { return $this->id; }
+    public function getRespuesta() { return $this->respuesta; }
+    public function getPregunta() { return $this->pregunta; } // devuelve OBJETO Pregunta
 
-    public function getRespuesta() {
-        return $this->respuesta;
-    }
-
-    public function getPregunta() {
-        return $this->pregunta;
-    }
-
-    public function setId($id) {
-        $this->id = $id;
-    }
-
-    public function setRespuesta($respuesta) {
-        $this->respuesta = $respuesta;
-    }
+    public function setId($id) { $this->id = $id; }
+    public function setRespuesta($respuesta) { $this->respuesta = $respuesta; }
 
     public function setPregunta($pregunta) {
-        $this->pregunta = $pregunta;
+        if (is_numeric($pregunta)) {
+            $this->pregunta = Pregunta::obtenerPorId($pregunta);
+        } else {
+            $this->pregunta = $pregunta;
+        }
     }
 }
 ?>

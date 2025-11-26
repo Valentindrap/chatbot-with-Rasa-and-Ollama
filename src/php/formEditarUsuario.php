@@ -2,10 +2,13 @@
 
 <?php
 require_once("./clases/usuario.class.php");
+require_once("./clases/rol.class.php");
 
 if (isset($_GET['id'])) {
     $usuario = Usuario::obtenerPorId($_GET['id']);
 }
+
+$roles = Rol::obtenerTodas();
 ?>
 <html>
 <head>
@@ -13,6 +16,7 @@ if (isset($_GET['id'])) {
     <link rel="icon" href="../img/logo.png" type="image/png">
 </head>
 </html>
+
 <h2 style="text-align: center;">Editar Usuario</h2>
 
 <form action="controller/usuario.controller.php" method="post" style="max-width: 400px; margin: auto;">
@@ -29,7 +33,18 @@ if (isset($_GET['id'])) {
     <input type="password" name="password"><br><br>
 
     <label>Rol:</label><br>
-    <input type="text" name="rol" value="<?= $usuario->getRolId() ?>" readonly><br><br>
+    <select name="rol" required>
+        <option value="">Seleccione un rol</option>
+
+        <?php foreach ($roles as $rol): ?>
+            <option value="<?= $rol->getId(); ?>"
+                <?= ($usuario->getRolId() == $rol->getId()) ? 'selected' : '' ?>>
+                <?= $rol->getNombre(); ?>
+            </option>
+        <?php endforeach; ?>
+
+    </select>
+    <br><br>
 
     <input type="submit" value="Actualizar Usuario">
 </form>
